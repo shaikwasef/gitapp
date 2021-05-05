@@ -1,0 +1,27 @@
+.user-pane{
+    display: flex;
+    flex-direction: column;
+    width : 250px;
+
+}
+.avatar{
+    height : 200px;
+    width : 200px;
+    align-self: center;
+    border-radius: 50%;
+}
+.followers-container{
+    display: flex;
+    align-items : center;
+    column-gap : 3px;
+}
+
+.email-container{
+    display: flex;
+    align-items : center;
+    column-gap : 3px;
+}
+
+.email{
+    color : grey;
+}
