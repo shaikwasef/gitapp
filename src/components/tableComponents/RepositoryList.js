@@ -32,14 +32,15 @@ function RepositoryList(props) {
         }
     } , [repoListUrl])
     
-    const repositoriesDisplay = repositories.map((repository) => {
-         return (<RepositoryItem  name = {repository.name} description = {repository.description} stars = {repository.stars} />)  
+    const repositoriesDisplay = repositories.map((repository,index) => {
+         return (<RepositoryItem  key ={index} name = {repository.name} description = {repository.description} stars = {repository.stars} />)  
     })
 
 
     return (
+      
         <div>
-            <div style={{marginBottom : "5px"}}>Repositories : </div>
+            <div style={{margin : "10px 0 10px 0"}}>Repositories : </div>
             <div className = "repository-pane">
                 {repositoriesDisplay}
             </div>

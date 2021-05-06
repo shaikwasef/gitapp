@@ -2,7 +2,9 @@ import React from 'react';
 import "./RepositoryItem.css"
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
+
 function RepositoryItem({name,stars,description}) {
+    
     return (
         <div className="repository-container">
             <div className = "repository-name">

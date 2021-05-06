@@ -10,7 +10,7 @@ function SearchArea(props) {
     const searchText = useRef(null);
 
     const searchApi = async (e) => {
-        if(e.code === 'Enter'){
+        if(e.code === 'Enter' || e ==='Enter'){
             const fetchUrl = "https://api.github.com/users/" + searchText.current.value;
             await axios.get(fetchUrl).
             then((response) => {
@@ -26,6 +26,7 @@ function SearchArea(props) {
                         repos : response.data.repos_url
                     }
                 ));
+                searchText.current.value = "";
             })
             .catch(() => {
                 alert('Username could not be found');
@@ -38,7 +39,7 @@ function SearchArea(props) {
     return (
         <div className="search-area">
             <input placeholder = "Enter github username..." required className = "search-box" onKeyUp = {searchApi} ref = {searchText}/>
-            <SearchIcon style = {{fontSize : 20}}/>
+            <SearchIcon style = {{fontSize : 20}} onClick= {() => searchApi('Enter')}/>
         </div>
     );
 }

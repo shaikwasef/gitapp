@@ -24,3 +24,23 @@
 .email{
     color : grey;
 }
+
+@media screen and (max-width : 500px) {
+    .user-pane{
+        display: flex;
+        flex-direction: column;
+        width : 350px;
+    }
+    .avatar{
+        height : 60px;
+        width : 60px;
+        align-self: center;
+        border-radius: 50%;
+    }
+    .responsive-user{
+        display:flex;
+        align-items : center;
+        column-gap: 5px;
+        justify-content: center;
+    }
+}

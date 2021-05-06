@@ -5,3 +5,13 @@
     grid-gap: 10px;
     margin-bottom: 10px;
 }
+
+@media screen and (max-width : 500px) {
+    .repository-pane{
+        width : 350px;
+        display : flex;
+        flex-direction: column;
+        row-gap:10px;
+        margin-bottom: 10px;
+    }
+}
