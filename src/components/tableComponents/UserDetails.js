@@ -12,7 +12,7 @@ function UserDetails(props) {
             {userDetails == null ? <div/> : 
             <div className = "user-pane">
                 <div className="responsive-user">
-                    <img src= {userDetails.avatar}  className = "avatar"/>
+                    <img src= {userDetails.avatar}  className = "avatar" alt = "avatar"/>
                     <div className = "responsive-user-details">
                         <div><b>Name : </b>{userDetails.name}</div>
                         <div><b>Username :</b> {userDetails.userName}</div>

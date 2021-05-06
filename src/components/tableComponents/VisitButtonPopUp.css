@@ -1,0 +1,32 @@
+.visit{
+    position:relative;
+    top : -5px;
+    height : 40px;
+    width : 100px;
+    border-radius: 20px;
+    font-weight: bolder;
+    background : transparent;
+    border : 2px solid black;
+    transition: all 0.8s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.visit:focus{
+    outline:none;  
+}
+
+.visit:hover{
+    background: rgb(102, 102, 102);
+    cursor:pointer !important;
+    color : white;
+}
+
+.visit-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

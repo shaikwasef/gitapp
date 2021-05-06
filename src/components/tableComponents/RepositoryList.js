@@ -11,8 +11,9 @@ function RepositoryList(props) {
     const repoListUrl = userDetails == null ? "" : userDetails.repos;
     const dispatch = useDispatch();
     
-    useEffect(async() => {
-        if(repoListUrl != ""){
+    useEffect(() => {
+        async function fetchData() {
+        if(repoListUrl !== ""){
             await axios.get(repoListUrl).then((response) =>{
                 let repositoryDataList = [];
                 const data = response.data; 
@@ -21,7 +22,7 @@ function RepositoryList(props) {
                                 name : data[i].name,
                                 description :  data[i].description,
                                 stars :  data[i].stargazers_count,
-                                language :  data[i].languages_url,
+                                languages :  data[i].languages_url,
                                 link :  data[i].html_url
                             }
                             repositoryDataList = repositoryDataList.concat(repoDataObject);
@@ -30,21 +31,26 @@ function RepositoryList(props) {
                 dispatch(updateRepoList(repositoryDataList));
             })
         }
-    } , [repoListUrl])
+    }
+    fetchData();
+    } , [repoListUrl,dispatch])
     
     const repositoriesDisplay = repositories.map((repository,index) => {
-         return (<RepositoryItem  key ={index} name = {repository.name} description = {repository.description} stars = {repository.stars} />)  
+         return (<RepositoryItem  key ={index} repository = {repository} />)  
     })
 
 
     return (
-      
         <div>
+       {userDetails == null ? <div/> :
+       <div>
             <div style={{margin : "10px 0 10px 0"}}>Repositories : </div>
-            <div className = "repository-pane">
-                {repositoriesDisplay}
-            </div>
+                <div className = "repository-pane">
+                    {repositoriesDisplay}
+                </div>
+        </div>}
         </div>
+        
     );
 }
 

@@ -4,17 +4,7 @@
     height : 100px;
     position: relative;
 }
-.repository-name{
-    display: flex;
-    align-items : center;
-    justify-content: space-between;
-    margin-left:5px;
-    cursor:pointer;
-    color:blue;
-}
-.repository-name:hover{
-    text-decoration-line: underline;
-}
+
 .repository-stars{
    display: flex;
    align-items : center;
@@ -27,3 +17,4 @@
     font-size:13px;
     margin-left:5px;
 }
+

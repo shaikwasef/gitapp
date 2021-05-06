@@ -12,8 +12,8 @@ function SearchArea(props) {
     const searchApi = async (e) => {
         if(e.code === 'Enter' || e ==='Enter'){
             const fetchUrl = "https://api.github.com/users/" + searchText.current.value;
-            await axios.get(fetchUrl).
-            then((response) => {
+            await axios.get(fetchUrl)
+            .then((response) => {
                 dispatch(changeUser(
                     {
                         avatar : response.data.avatar_url,
