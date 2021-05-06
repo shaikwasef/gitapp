@@ -14,16 +14,18 @@ function SearchArea(props) {
             const fetchUrl = "https://api.github.com/users/" + searchText.current.value;
             await axios.get(fetchUrl).
             then((response) => {
-                const userData = {
-                avatar : response.data.avatar_url,
-                name : response.data.name ,
-                userName : response.data.login,
-                followers : response.data.followers,
-                following : response.data.following ,
-                email : response.data.email,
-                bio : response.data.bio
-                }
-                dispatch(changeUser(userData));
+                dispatch(changeUser(
+                    {
+                        avatar : response.data.avatar_url,
+                        name : response.data.name ,
+                        userName : response.data.login,
+                        followers : response.data.followers,
+                        following : response.data.following ,
+                        email : response.data.email,
+                        bio : response.data.bio ,
+                        repos : response.data.repos_url
+                    }
+                ));
             })
             .catch(() => {
                 alert('Username could not be found');

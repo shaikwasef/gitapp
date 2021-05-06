@@ -11,12 +11,12 @@ function UserDetails(props) {
         <div>
             {userDetails == null ? <div/> : 
             <div className = "user-pane">
-                <img src= {userDetails.userData.avatar}  className = "avatar"/>
-                <div><b>NAME : </b>{userDetails.userData.name}</div>
-                <div><b>USERNAME :</b> {userDetails.userData.userName}</div>
-                <div className = "followers-container"><PeopleOutlineIcon/> <b> : </b>followers - <b>{userDetails.userData.followers}</b> : following - <b>{userDetails.userData.following}</b></div>
-                <div className = "email-container"><MailOutlineIcon/> <b>:</b> <div className = "email">{userDetails.userData.email}</div></div>
-                <div><b>Bio : </b>{userDetails.userData.bio}</div>
+                <img src= {userDetails.avatar}  className = "avatar"/>
+                <div><b>NAME : </b>{userDetails.name}</div>
+                <div><b>USERNAME :</b> {userDetails.userName}</div>
+                <div className = "followers-container"><PeopleOutlineIcon/> <b> : </b>followers - <b>{userDetails.followers}</b> : following - <b>{userDetails.following}</b></div>
+                <div className = "email-container"><MailOutlineIcon/> <b>:</b> <div className = "email">{userDetails.email}</div></div>
+                <div><b>Bio : </b>{userDetails.bio}</div>
             </div>
             }
         </div>    

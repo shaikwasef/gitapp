@@ -1,8 +1,6 @@
-
-
-export const userReducer = (state = null , action) => {
+export const repositoryReducer = (state = [] , action) =>{
     switch (action.type){
-        case "CHANGE USER":
+        case "RESPOSITORY LIST UPDATE":
             return action.payload;
         default :
             return state;

@@ -1,0 +1,31 @@
+.repository-container{
+    border : 0.5px solid rgba(211, 211, 211, 0.966);
+    border-radius : 5px;
+    height : 100px;
+    position: relative;
+}
+.repository-name{
+    display: flex;
+    align-items : center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left:5px;
+    cursor:pointer;
+    color:blue;
+}
+.repository-name:hover{
+
+    text-decoration-line: underline;
+}
+.repository-stars{
+   display: flex;
+   align-items : center;
+   position: absolute; 
+   right:5px;
+   bottom:5px;
+}
+.repository-description{
+    color : grey;
+    font-size:13px;
+    margin-left:5px;
+}

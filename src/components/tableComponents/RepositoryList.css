@@ -1,3 +1,7 @@
 .repository-pane{
-    border : 1px solid black;
+    width : 700px;
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 10px;
 }
