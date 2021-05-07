@@ -6,15 +6,15 @@ import StarIcon from '@material-ui/icons/Star';
 import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 import axios from 'axios';
 import VisitButtonPopUp from './VisitButtonPopUp';
+import Modal from 'react-bootstrap/Modal'
 
-function PopUpItem({repository}) {
+function PopUpItem({repository,onClose}) {
     const [languageList,setLanguageList] = useState([]);
 
     useEffect(() => {
         async function fetchLanguages(){
         let languagesArray = [];
         try{
-            axios.defaults.headers.common['Authorization'] = 'token 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' ;
             const response = await axios.get(repository.languages,{
                 headers : {'User-Agent' : 'shaikwasef'}
             })    
@@ -37,19 +37,15 @@ function PopUpItem({repository}) {
     }
 
     return (
-        <div>
-            <Popup
-                className = "popup-content"
-                trigger={<div className = "repository-name">{repository.name}</div>}
-                modal
-                nested
-                >{
-                    close  => (
-                        <div className="modal">
-                        <button className="close" onClick={close}>
-                            &times;
-                        </button>
-                    <div className="header">{repository.name}</div>
+      
+            <Modal className= "popup-content modal" >
+                         <button className="close" >
+                             &times;
+                         </button>
+                <Modal.Header>
+                     <Modal.Title className="header">{repository.name}</Modal.Title>
+                 </Modal.Header>
+                <Modal.Body>
                     <div className="content">
                         <div><CreateIcon style={{fontSize : "1.1em" , marginRight:"5px" , color:"blue"}}/>
                         {repository.description==null ? ": " : ": " +  repository.description}</div>
@@ -57,10 +53,8 @@ function PopUpItem({repository}) {
                         <div><DeveloperModeIcon  style = {{color:"purple" , fontSize : "1.1em" }}/> : {languagesToString()}</div>
                         <VisitButtonPopUp link = {repository.link}/>
                     </div>
-                    </div>)
-                }
-            </Popup>
-        </div>
+                    </Modal.Body>
+            </Modal >
     );
 }
 

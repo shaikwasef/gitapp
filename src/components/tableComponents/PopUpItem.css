@@ -15,14 +15,14 @@
     border: 1.5px solid rgb(32, 32, 32);
     border-radius: 10px;
     width: 70vw;
-    max-height:65vw;
+    max-height:65vh;
     background-color: rgb(245, 245, 245);
     padding:0 10px 0 10px;
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
     overflow:auto;
   }
   
-  .modal > .header {
+.header {
     font-size: 18px;
     text-align: center;
     padding: 5px;
@@ -54,21 +54,22 @@
     margin: auto;
     text-align: center;
   }
-  .modal > .close {
+  
+ .close {
     cursor: pointer;
     position: absolute;
     display: block;
     padding: 2px 5px;
     line-height: 20px;
-    right: -10px;
-    top: -10px;
+    right: 5px;
+    top: 5px;
     font-size: 24px;
     background: #ffffff;
     border-radius: 18px;
     border: 1px solid #cfcece;
   }
 
-  .modal > .close:hover{
+  .close:hover{
     color : red;
   }
 
