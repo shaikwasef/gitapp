@@ -1,4 +1,4 @@
-# The GitHUb App
+# The GitHub App
 
 ## Table of Contents
 
