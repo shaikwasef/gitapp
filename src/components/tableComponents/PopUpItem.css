@@ -12,20 +12,21 @@
 
 .modal {
     font-size: 12px;
-    border: 1px solid rgb(32, 32, 32);
+    border: 1.5px solid rgb(32, 32, 32);
     border-radius: 10px;
     width: 70vw;
     max-height:65vw;
     background-color: rgb(245, 245, 245);
-    border : dashed;
     padding:0 10px 0 10px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
     overflow:auto;
   }
+  
   .modal > .header {
     font-size: 18px;
     text-align: center;
     padding: 5px;
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid gray;
     overflow-wrap: break-word;
     -ms-hyphens: auto;
     -moz-hyphens: auto;

@@ -12,14 +12,13 @@ function PopUpItem({repository}) {
 
     useEffect(() => {async function fetchLanguages(){
         let languages= ": ";
-        let token = localStorage.getItem("token")
-        axios.defaults.headers.common['Authorization'] = token
+        axios.defaults.headers.common['Authorization'] = null
         await axios.get(repository.languages).then((response) => {
             for(const key of Object.keys(response.data)){
                 languages = languages.concat(`${key}`," ");
             }
             setLanguageList(languages);
-        })
+        }).catch((error) => alert("Languages are unavailable for display") )
     }
     fetchLanguages()
     },[]);

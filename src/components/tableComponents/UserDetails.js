@@ -13,15 +13,14 @@ function UserDetails(props) {
             <div className = "user-pane">
                 <div className="responsive-user">
                     <img src= {userDetails.avatar}  className = "avatar" alt = "avatar"/>
-                    <div className = "responsive-user-details">
-                        <div><b>Name : </b>{userDetails.name}</div>
-                        <div><b>Username :</b> {userDetails.userName}</div>
+                    <div className = "user-names">
+                        <div style = {{fontSize:"22px"}}>{userDetails.name}</div>
+                        <div style = {{color:"rgb(107,107,107)"}}>Username : {userDetails.userName}</div>
                     </div>
                 </div>
-                    <div className = "followers-container"><PeopleOutlineIcon/> <b> : </b>followers - <b>{userDetails.followers}</b> : following - <b>{userDetails.following}</b></div>
-                    <div className = "email-container"><MailOutlineIcon/> <b>:</b> <div className = "email">{userDetails.email}</div></div>
-                    <div><b>Bio : </b>{userDetails.bio}</div>
-                
+                    <div>{userDetails.bio}</div>
+                    <div className = "followers-container"><PeopleOutlineIcon style={{color:"grey"}}/> <span style={{color:"black"}}>{userDetails.followers}</span> follower  : <span style={{color:"black"}}>{userDetails.following}</span> following</div>
+                    <div className = "email-container"><MailOutlineIcon style={{color:"grey"}}/><div className = "email">{userDetails.email}</div></div>
             </div>
             }
         </div>    

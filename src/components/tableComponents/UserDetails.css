@@ -1,18 +1,20 @@
 .user-pane{
     display: flex;
     flex-direction: column;
+    row-gap:13px;
     width : 250px;
 }
 .avatar{
-    height : 200px;
-    width : 200px;
+    height : 220px;
+    width : 220px;
     align-self: center;
     border-radius: 50%;
 }
 .followers-container{
     display: flex;
     align-items : center;
-    column-gap : 3px;
+    column-gap : 5px;
+    color:grey;
 }
 
 .email-container{
@@ -22,25 +24,31 @@
 }
 
 .email{
-    color : grey;
+    color : rgb(0, 0, 0);
+}
+
+.user-names{
+    display: flex;
+    flex-direction: column;
+    row-gap:5px;
 }
 
 @media screen and (max-width : 500px) {
     .user-pane{
         display: flex;
         flex-direction: column;
-        width : 350px;
+        width : 95vw;
     }
     .avatar{
-        height : 60px;
-        width : 60px;
-        align-self: center;
+        height : 90px;
+        width : 90px;
+        align-self: flex-start;
         border-radius: 50%;
     }
     .responsive-user{
         display:flex;
         align-items : center;
         column-gap: 5px;
-        justify-content: center;
+        justify-content:space-evenly;
     }
 }

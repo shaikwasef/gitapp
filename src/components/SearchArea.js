@@ -4,13 +4,14 @@ import "./SearchArea.css";
 import axios from "axios";
 import {changeUser} from "../actions/changeUser";
 import {useDispatch} from "react-redux";
+import {updateRepoList} from "../actions/updateRepoList"
 
 function SearchArea(props) {
     const dispatch = useDispatch();
     const searchText = useRef(null);
 
     const searchApi = async (e) => {
-        if(e.code === 'Enter' || e ==='Enter'){
+        if(e.code === 'Enter' || e ==='Enter' || e.keyCode===13){
             const fetchUrl = "https://api.github.com/users/" + searchText.current.value;
             await axios.get(fetchUrl)
             .then((response) => {
@@ -29,8 +30,8 @@ function SearchArea(props) {
                 searchText.current.value = "";
             })
             .catch(() => {
-                alert('Username could not be found');
-                searchText.current.value = "";
+                dispatch(changeUser("notFound"));
+                dispatch(updateRepoList([]));
             });
             
         }

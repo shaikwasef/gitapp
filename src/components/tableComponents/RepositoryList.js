@@ -14,21 +14,23 @@ function RepositoryList(props) {
     useEffect(() => {
         async function fetchData() {
         if(repoListUrl !== ""){
+            axios.defaults.headers.common['Authorization'] = null
             await axios.get(repoListUrl).then((response) =>{
                 let repositoryDataList = [];
                 const data = response.data; 
-                for(let i = 0 ; i < data.length ; i++){
-                    const repoDataObject = {
-                                name : data[i].name,
-                                description :  data[i].description,
-                                stars :  data[i].stargazers_count,
-                                languages :  data[i].languages_url,
-                                link :  data[i].html_url
+                repositoryDataList = data.map(dataPoint=>{
+                    return  {
+                                name : dataPoint.name,
+                                description :  dataPoint.description,
+                                stars :  dataPoint.stargazers_count,
+                                languages :  dataPoint.languages_url,
+                                link :  dataPoint.html_url
                             }
-                            repositoryDataList = repositoryDataList.concat(repoDataObject);
-                }
+                })
                 repositoryDataList.sort((a,b) => b.stars - a.stars);
                 dispatch(updateRepoList(repositoryDataList));
+            }).catch((error) => {
+                alert("Github is currently not available")
             })
         }
     }
