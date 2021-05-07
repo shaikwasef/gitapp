@@ -12,13 +12,16 @@ function PopUpItem({repository}) {
 
     useEffect(() => {async function fetchLanguages(){
         let languages= ": ";
-        axios.defaults.headers.common['Authorization'] = null
-        await axios.get(repository.languages).then((response) => {
+        
+        await axios.get(repository.languages,{
+            headers : {'User-Agent' : 'shaikwasef'}
+        })
+        .then((response) => {
             for(const key of Object.keys(response.data)){
                 languages = languages.concat(`${key}`," ");
             }
             setLanguageList(languages);
-        }).catch((error) => alert("Languages are unavailable for display") )
+        }).catch((error) => alert("Languages are unavailable for this repository") )
     }
     fetchLanguages()
     },[]);
@@ -39,8 +42,8 @@ function PopUpItem({repository}) {
                     <div className="header">{repository.name}</div>
                     <div className="content">
                         <div><CreateIcon style={{fontSize : "1.1em" , marginRight:"5px" , color:"blue"}}/>{repository.description==null ? ": " : ": " +  repository.description}</div>
-                        <div><StarIcon style = {{color:"rgb(245, 197, 66)" , fontSize : "1.3em" }}/>{": " + repository.stars}</div>
-                        <div><DeveloperModeIcon  style = {{color:"purple" , fontSize : "1.3em" }}/>{languageList}</div>
+                        <div><StarIcon style = {{color:"rgb(245, 197, 66)" , fontSize : "1.1em" }}/>{": " + repository.stars}</div>
+                        <div><DeveloperModeIcon  style = {{color:"purple" , fontSize : "1.1em" }}/>{languageList}</div>
                         <VisitButtonPopUp link = {repository.link}/>
                     </div>
                     </div>)

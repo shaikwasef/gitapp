@@ -12,8 +12,11 @@ function SearchArea(props) {
 
     const searchApi = async (e) => {
         if(e.code === 'Enter' || e ==='Enter' || e.keyCode===13){
+            
             const fetchUrl = "https://api.github.com/users/" + searchText.current.value;
-            await axios.get(fetchUrl)
+            await axios.get(fetchUrl , {
+                headers : {'User-Agent' : 'shaikwasef'}
+            })
             .then((response) => {
                 dispatch(changeUser(
                     {

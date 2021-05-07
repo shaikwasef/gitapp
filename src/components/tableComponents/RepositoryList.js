@@ -14,10 +14,14 @@ function RepositoryList(props) {
     useEffect(() => {
         async function fetchData() {
         if(repoListUrl !== ""){
-            axios.defaults.headers.common['Authorization'] = null
-            await axios.get(repoListUrl).then((response) =>{
+           
+            await axios.get(repoListUrl,{
+                headers: {'User-Agent': 'shaikwasef'}
+              })
+            .then((response) =>{
                 let repositoryDataList = [];
                 const data = response.data; 
+                axios.defaults.headers.common['Authorization'] = null
                 repositoryDataList = data.map(dataPoint=>{
                     return  {
                                 name : dataPoint.name,
@@ -30,7 +34,7 @@ function RepositoryList(props) {
                 repositoryDataList.sort((a,b) => b.stars - a.stars);
                 dispatch(updateRepoList(repositoryDataList));
             }).catch((error) => {
-                alert("Github is currently not available")
+                alert("There are no repositories for this user")
             })
         }
     }
