@@ -1,6 +1,6 @@
 export const repositoryReducer = (state = [] , action) =>{
     switch (action.type){
-        case "RESPOSITORY LIST UPDATE":
+        case "REPO_LIST_UPDATE":
             return action.payload;
         default :
             return state;

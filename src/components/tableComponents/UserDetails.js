@@ -4,12 +4,12 @@ import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import {useSelector} from "react-redux";
 
-function UserDetails(props) {
+function UserDetails() {
     const userDetails = useSelector(state => state.userReducer);
 
     return (
         <div>
-            {userDetails == null ? <div/> : 
+            {!userDetails? <div/> : 
             <div className = "user-pane">
                 <div className="responsive-user">
                     <img src= {userDetails.avatar}  className = "avatar" alt = "avatar"/>

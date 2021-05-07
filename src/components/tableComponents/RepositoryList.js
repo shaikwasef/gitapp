@@ -5,6 +5,7 @@ import axios from 'axios';
 import { updateRepoList } from '../../actions/updateRepoList';
 import RepositoryItem from './RepositoryItem';
 
+
 function RepositoryList(props) {
     const userDetails = useSelector(state => state.userReducer);
     const repositories = useSelector(state => state.repositoryReducer);
@@ -14,15 +15,12 @@ function RepositoryList(props) {
     useEffect(() => {
         async function fetchData() {
         if(repoListUrl !== ""){
-           
-            await axios.get(repoListUrl,{
+            try{
+            const {data} = await axios.get(repoListUrl,{
                 headers: {'User-Agent': 'shaikwasef'}
               })
-            .then((response) =>{
-                let repositoryDataList = [];
-                const data = response.data; 
-                axios.defaults.headers.common['Authorization'] = null
-                repositoryDataList = data.map(dataPoint=>{
+            let repositoryDataList = [];
+            repositoryDataList = data.map(dataPoint=>{
                     return  {
                                 name : dataPoint.name,
                                 description :  dataPoint.description,
@@ -31,11 +29,13 @@ function RepositoryList(props) {
                                 link :  dataPoint.html_url
                             }
                 })
-                repositoryDataList.sort((a,b) => b.stars - a.stars);
-                dispatch(updateRepoList(repositoryDataList));
-            }).catch((error) => {
+            //gitHub api does not return data in sorted order even with the right query parameters   
+            repositoryDataList.sort((a,b) => b.stars - a.stars);
+            dispatch(updateRepoList(repositoryDataList));
+            }
+            catch{
                 alert("There are no repositories for this user")
-            })
+            }
         }
     }
     fetchData();
@@ -48,7 +48,7 @@ function RepositoryList(props) {
 
     return (
         <div>
-       {userDetails == null ? <div/> :
+       {!userDetails? <div/> :
        <div>
             <div style={{margin : "10px 0 10px 0"}}>Repositories : </div>
                 <div className = "repository-pane">

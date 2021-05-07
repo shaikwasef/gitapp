@@ -1,23 +1,30 @@
-import React,{useRef} from 'react';
+import React,{useState} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import "./SearchArea.css";
 import axios from "axios";
 import {changeUser} from "../actions/changeUser";
+import {userFound,userNotFound,noUser} from "../actions/userStatus"
 import {useDispatch} from "react-redux";
 import {updateRepoList} from "../actions/updateRepoList"
 
 function SearchArea(props) {
     const dispatch = useDispatch();
-    const searchText = useRef(null);
+    const [searchText,setSearchText] = useState("");
 
     const searchApi = async (e) => {
         if(e.code === 'Enter' || e ==='Enter' || e.keyCode===13){
-            
-            const fetchUrl = "https://api.github.com/users/" + searchText.current.value;
-            await axios.get(fetchUrl , {
-                headers : {'User-Agent' : 'shaikwasef'}
-            })
-            .then((response) => {
+
+            if(searchText === ""){
+                dispatch(noUser());
+                dispatch(updateRepoList([]));
+                dispatch(changeUser(null));
+                return;
+            }
+            const fetchUrl = "https://api.github.com/users/" + searchText;
+            try{
+                const response = await axios.get(fetchUrl , {
+                    headers : {'User-Agent' : 'shaikwasef'}
+                })    
                 dispatch(changeUser(
                     {
                         avatar : response.data.avatar_url,
@@ -30,19 +37,21 @@ function SearchArea(props) {
                         repos : response.data.repos_url
                     }
                 ));
-                searchText.current.value = "";
-            })
-            .catch(() => {
-                dispatch(changeUser("notFound"));
+                dispatch(userFound());
+                setSearchText("");
+            }
+            catch{
+                dispatch(changeUser(null));
                 dispatch(updateRepoList([]));
-            });
-            
+                dispatch(userNotFound());
+            }
         }
     }
 
     return (
         <div className="search-area">
-            <input placeholder = "Enter github username..." required className = "search-box" onKeyUp = {searchApi} ref = {searchText}/>
+            <input placeholder = "Enter github username..." required className = "search-box" 
+            onKeyUp = {searchApi} onChange ={(e) => setSearchText(e.target.value)}/>
             <SearchIcon style = {{fontSize : 20}} onClick= {() => searchApi('Enter')}/>
         </div>
     );
