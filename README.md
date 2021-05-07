@@ -1,6 +1,6 @@
-## gitApp
+# gitApp
 
-# Table of Contents
+## Table of Contents
 
 - [Why must you document your project](#why_document)
 - [Best Practices](#best_practices)
