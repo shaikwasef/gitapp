@@ -4,7 +4,7 @@
 
 - [Description](#description)
 - [Features](#features)
-- [Steps to install](#installation)
+- [Installation](#installation)
 - [Technologies Used](#technologies_used)
 - [Unsafe header browser error](#unsafe_header)
 - [Rate Limiting](#rate_limit)
@@ -20,7 +20,7 @@ The GitHub App makes use of the <a href = "https://docs.github.com/en/rest" targ
 - Check detailed information of each respository using one click.
 - Responsive design working flawlessly across mobile devices.
  
-## Steps to install <a name = "installation"></a>
+## Installation <a name = "installation"></a>
 On your local pc use the commond 
  ### `npm install`
 To run the app on your local pc use the command
