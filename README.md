@@ -1,4 +1,4 @@
-# gitApp
+# The GitHUb App
 
 ## Table of Contents
 
