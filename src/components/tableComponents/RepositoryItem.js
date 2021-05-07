@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./RepositoryItem.css"
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
@@ -6,11 +6,12 @@ import PopUpItem from './PopUpItem';
 
 
 function RepositoryItem({repository}) {
-
+    const [showPopUp,setShowPopUp] = useState(false);
 
     return (
         <div className="repository-container">
-            <PopUpItem repository={repository}/>
+            <div className = "repository-name" onClick = {() => {setShowPopUp(true)}}>{repository.name}</div>
+            {showPopUp && <PopUpItem repository={repository} showPopUp={showPopUp} onClose={()=>setShowPopUp(false)} />}
             <div className="repository-description">
                 {repository.description !=null? ( repository.description.length > 110 ? 
                 repository.description.substring(0,105) + "....." : repository.description ): ""}

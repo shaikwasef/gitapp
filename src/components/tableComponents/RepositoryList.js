@@ -15,11 +15,8 @@ function RepositoryList(props) {
     useEffect(() => {
         async function fetchData() {
         if(repoListUrl !== ""){
-            try{
-                
-            const {data} = await axios.get(repoListUrl,{
-                headers: {'User-Agent': 'shaikwasef'}
-              })
+            try{  
+            const {data} = await axios.get(repoListUrl)
             let repositoryDataList = [];
             repositoryDataList = data.map(dataPoint=>{
                     return  {
