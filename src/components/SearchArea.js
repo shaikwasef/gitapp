@@ -22,6 +22,7 @@ function SearchArea(props) {
             }
             const fetchUrl = "https://api.github.com/users/" + searchText;
             try{
+                axios.defaults.headers.common['Authorization'] = 'token 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' ;
                 const response = await axios.get(fetchUrl , {
                     headers : {'User-Agent' : 'shaikwasef'}
                 })    

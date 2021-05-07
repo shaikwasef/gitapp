@@ -14,6 +14,7 @@ function PopUpItem({repository}) {
         async function fetchLanguages(){
         let languagesArray = [];
         try{
+            axios.defaults.headers.common['Authorization'] = 'token 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' ;
             const response = await axios.get(repository.languages,{
                 headers : {'User-Agent' : 'shaikwasef'}
             })    
