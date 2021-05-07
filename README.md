@@ -21,7 +21,7 @@ To run the app on your local pc use the command
 The GitHub App is built using React-JS , Redux , and Axios .
  
 ## Unsafe header browser error <a name = "unsafe_header"></a>
-In the chrome and safari browsers users may come across the error "Refused to set unsafe header "User-Agent". This is because the GitHub Api rejects any request without a User-Agent header < a href = "https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required" >(read here)</a> . However chrome and safari do not allow manual setting of the user-agent header and set their own user-agent header hence the error refused to set unsafe header occurs.
+In the chrome and safari browsers users may come across the error <p style = "color:red">"Refused to set unsafe header "User-Agent""</p>. This is because the GitHub Api rejects any request without a User-Agent header < a href = "https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required" >(read here)</a> . However chrome and safari do not allow manual setting of the user-agent header and set their own user-agent header hence the error refused to set unsafe header occurs.
  
  
  
