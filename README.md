@@ -18,7 +18,7 @@ The GitHub App makes use of the <a href = "https://docs.github.com/en/rest" targ
 - Get user information for seached username.
 - Get list of all repositories belonging to the user sorted by rating.
 - Check detailed information of each respository using one click.
-- Responsive design working flawlessly across mobile devices.
+- Responsive design working flawlessly across mobile devices .
  
 ## Installation <a name = "installation"></a>
 On your local pc use the commond 
