@@ -11,8 +11,7 @@ function PopUpItem({repository}) {
     const [languageList,setLanguageList] = useState("");
 
     useEffect(() => {async function fetchLanguages(){
-        let languages= ": ";
-        
+        let languages= ": ";  
         await axios.get(repository.languages,{
             headers : {'User-Agent' : 'shaikwasef'}
         })
@@ -21,7 +20,7 @@ function PopUpItem({repository}) {
                 languages = languages.concat(`${key}`," ");
             }
             setLanguageList(languages);
-        }).catch((error) => alert("Languages are unavailable for this repository") )
+        }).catch((error) => console.log(error) )
     }
     fetchLanguages()
     },[]);
