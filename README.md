@@ -22,9 +22,9 @@ The GitHub App makes use of the <a href = "https://docs.github.com/en/rest" targ
  
 ## Installation <a name = "installation"></a>
 On your local pc use the commond 
- ### `npm install`
+ ### `yarn install`
 To run the app on your local pc use the command
- ### `npm start`
+ ### `yarn start`
  
 ## Technologies Used  <a name = "technologies_used"></a>
 The GitHub App is built using React-JS , Redux , and Axios .
