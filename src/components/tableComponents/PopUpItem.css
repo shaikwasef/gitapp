@@ -11,6 +11,7 @@
 }
 
 .modal {
+    top : 150px;
     max-height: 400px;
     overflow: scroll;
   }
