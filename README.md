@@ -31,8 +31,7 @@ To run the app on your local pc use the command
 The GitHub App is built using React-JS , Redux , and Axios .
  
 ## Rate Limiting<a name = "rate_limit"></a>
-Currently the application has a request limit of 60 requests per hour because of limitations setup by GitHub API [(read here)](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting). Requests exceeding the 403 limit are responded with a HTTP 403 error code .
- 
+Currently the application has a request limit of 60 requests per hour because of limitations setup by GitHub API [(read here)](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting). Requests exceeding this limit are responded with a HTTP 403 error code . 
  
  
 
