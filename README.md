@@ -6,7 +6,6 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Technologies Used](#technologies_used)
-- [Unsafe header browser error](#unsafe_header)
 - [Rate Limiting](#rate_limit)
 
 
@@ -28,9 +27,6 @@ To run the app on your local pc use the command
  
 ## Technologies Used  <a name = "technologies_used"></a>
 The GitHub App is built using React-JS , Redux , and Axios .
- 
-## Unsafe header browser error <a name = "unsafe_header"></a>
-In the chrome and safari browsers users may come across the error "Refused to set unsafe header "User-Agent"". This is because the GitHub Api rejects any request without a User-Agent header [(read here)](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required) . However chrome and safari do not allow manual setting of the user-agent header and set their own user-agent header hence the error refused to set unsafe header occurs.
  
 ## Rate Limiting<a name = "rate_limit"></a>
 Currently the application has a request limit of 60 requests per hour because of limitations setup by GitHub API [(read here)](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting). Requests exceeding the 403 limit are responded with a HTTP 403 error code .
