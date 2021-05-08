@@ -22,7 +22,7 @@ The GitHub App makes use of the <a href = "https://docs.github.com/en/rest" targ
 - Responsive design working flawlessly across mobile devices .
  
 ## Installation <a name = "installation"></a>
-On your local pc use the commond 
+On your local pc use the command 
  ### `yarn install`
 To run the app on your local pc use the command
  ### `yarn start`
